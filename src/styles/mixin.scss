@@ -1,0 +1,31 @@
+$font-size12: 12px;
+$font-size14: 14px;
+$font-size16: 16px;
+$font-size18: 18px;
+
+$red: #c20c0c;
+$black: #000;
+
+@mixin flex($justify-content: center, $align-items: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin sprite-icon($x: 0, $y: 0) {
+  background: url('../assets/images/icon.png') no-repeat;
+  background-position: $x $y;
+}
+
+@mixin position($position: relative, $top: 0, $right: 0, $bottom: 0, $left: 0) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin vitical-center($line-height) {
+  text-align: center;
+  line-height: $line-height;
+}

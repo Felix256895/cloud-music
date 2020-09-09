@@ -1,43 +1,119 @@
+@import 'styles/mixin.scss';
+
 .layout {
   width: 100%;
   .header {
     height: 70px;
     background-color: #242424;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid $black;
   }
   .header_warp {
     height: 100%;
     width: 1100px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
+    @include flex(space-between);
   }
   .logo {
     width: 176px;
     height: 70px;
-    display: flex;
-    align-items: center;
-    background: url('../assets/images/icon.png') no-repeat 0 9999px;
-    background-position: 0 0;
+    @include flex();
+    @include sprite-icon();
     a {
-      display: flex;
       width: 100%;
       height: 100%;
     }
   }
   .nav {
-    display: flex;
     height: 100%;
-    align-items: center;
+    @include flex(flex-start, center);
     .nav_item {
+      position: relative;
       height: 100%;
       a {
-        display: flex;
-        align-items: center;
+        position: relative;
+        @include flex(flex-start, center);
         padding: 0 19px;
         height: 100%;
         color: #ccc;
+        &:hover {
+          cursor: pointer;
+          background-color: $black;
+        }
+        &::after {
+          @include position(absolute, 100%, 0, 0, 50%);
+          content: '';
+          width: 12px;
+          height: 7px;
+          @include sprite-icon(-105px, -70px);
+          background-size: 120px auto;
+          margin-left: -6px;
+          margin-top: -6px;
+          display: none;
+        }
       }
+      .active {
+        cursor: pointer;
+        background-color: $black;
+        &::after {
+          display: block;
+        }
+      }
+    }
+  }
+  .music_hot {
+    display: inline-block;
+    width: 28px;
+    height: 19px;
+    @include sprite-icon(-190px);
+    @include position(relative, -10px, 0, 0, -10px);
+  }
+  .search {
+    @include flex();
+    width: 158px;
+    height: 32px;
+    border-radius: 32px;
+    @include sprite-icon(0, -99px);
+    background-color: #fff;
+    overflow: hidden;
+    .search_input {
+      margin-left: 30px;
+      border: none;
+      outline: none;
+      font-size: $font-size12;
+    }
+  }
+  .create {
+    width: 90px;
+    height: 32px;
+    @include vitical-center(32px);
+    font-size: $font-size14;
+    color: #ccc;
+    border: 1px solid #4f4f4f;
+    border-radius: 20px;
+    box-sizing: border-box;
+    &:hover {
+      color: #fff;
+      border: 1px solid #fff;
+      cursor: pointer;
+    }
+  }
+  .login {
+    font-size: $font-size14;
+    color: #787878;
+    height: 100%;
+    line-height: 70px;
+    &:hover {
+      color: #666;
+      cursor: pointer;
+    }
+  }
+  .subnav {
+    padding: 2.5px 0;
+    background-color: $red;
+    .subnav_container {
+      width: 1100px;
+      margin: 0 auto;
+      padding-left: 180px;
     }
   }
 }

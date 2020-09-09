@@ -69,6 +69,7 @@ module.exports = {
   appUtils: resolveApp('src/utils'),
   appViews: resolveApp('src/views'),
   appAssets: resolveApp('src/assets'),
+  appStyles: resolveApp('src/styles'),
   publicUrlOrPath,
 };
 
