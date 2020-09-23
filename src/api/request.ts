@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const API_KEY: string = '4a3b711b';
-const BASE_URL: string = 'http://localhost:8080'
+const BASE_URL: string = 'http://localhost:9000';
 // 创建实例时设置配置的默认值
 
 /**
@@ -9,7 +9,7 @@ const BASE_URL: string = 'http://localhost:8080'
  */
 var instance = axios.create({
   baseURL: BASE_URL, // 公	共接口url（如果有多个的公共接口的话，需要处理）
-  timeout: 3000, // 请求超时
+  timeout: 3000 // 请求超时
 });
 // /api/getUserById
 
@@ -22,21 +22,21 @@ var instance = axios.create({
 //  如果不想每个接口都加载loading ，就注释掉请求前拦截器,在http这个类中处理
 
 instance.interceptors.request.use(
-  config => {
+  (config) => {
     // 在发送请求之前做些什么（... 这里写你的展示loading的逻辑代码 ）
     // isShowLoading(true);
     // 获取token，配置请求头
     // const TOKEN = localStorage.getItem('Token')
     // 演示的token（注意配置请求头，需要后端做cros跨域处理，我这里自己前端配的跨域）
-  //   const TOKEN = '1fd399bdd9774831baf555ae5979c66b'
-  //   if(TOKEN){
-  //     // 配置请求头 token
-  //     config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-  //     config.headers['Authorization'] = TOKEN;
-  //  }
+    //   const TOKEN = '1fd399bdd9774831baf555ae5979c66b'
+    //   if(TOKEN){
+    //     // 配置请求头 token
+    //     config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+    //     config.headers['Authorization'] = TOKEN;
+    //  }
     return config;
   },
-  error => {
+  (error) => {
     // 对请求错误做些什么，处理这个错误
 
     // 可以直接处理或者展示出去,toast show()
@@ -55,26 +55,24 @@ instance.interceptors.request.use(
  * */
 
 instance.interceptors.response.use(
-  function(response: any) {
+  function (response: any) {
     // 对响应数据做点什么
     // isShowLoading(false);
     // console.log(response)
     // 根据你们家的后端定义请求过期后返回的参数，处理token过期问题
     // 我这个接口木有token啊，这里演示下
     // 判断
-    const {status} = response.data;
+    const { status } = response.data;
     // 判断状态码401或者其它条件，不知道判断哪个的去问你家后台
-    if(Object.is(status,401)){
+    if (Object.is(status, 401)) {
       // token过期后处理
       // 1.删除你本地存储的那个过期的token
-      
       // 2. 跳转到登陆页（因为没有装路由，不写了，重新登陆赋值）
-
       //  todo...
     }
     return response;
   },
-  function(error: any) {
+  function (error: any) {
     // 对响应错误做点什么
     // isShowLoading(false);
     return Promise.reject(error);
@@ -103,13 +101,12 @@ class http {
   // 使用async ... await
   static async get(url: string, params?: object) {
     // console.log(params)
-    return await instance.get(url, { params }) 
+    return await instance.get(url, { params });
   }
   static async post(url: string, params?: object) {
     // console.log(params)
     return await instance.post(url, params);
   }
 }
-
 
 export default http;

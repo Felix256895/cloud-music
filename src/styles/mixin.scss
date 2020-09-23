@@ -5,6 +5,7 @@ $font-size18: 18px;
 
 $red: #c20c0c;
 $black: #000;
+$white: #fff;
 
 @mixin flex($justify-content: center, $align-items: center) {
   display: flex;

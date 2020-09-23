@@ -3,12 +3,10 @@
 .layout {
   width: 100%;
   .header {
-    height: 70px;
     background-color: #242424;
-    border-bottom: 1px solid $black;
   }
   .header_warp {
-    height: 100%;
+    height: 70px;
     width: 1100px;
     margin: 0 auto;
     @include flex(space-between);
@@ -73,7 +71,7 @@
     height: 32px;
     border-radius: 32px;
     @include sprite-icon(0, -99px);
-    background-color: #fff;
+    background-color: $white;
     overflow: hidden;
     .search_input {
       margin-left: 30px;
@@ -92,8 +90,8 @@
     border-radius: 20px;
     box-sizing: border-box;
     &:hover {
-      color: #fff;
-      border: 1px solid #fff;
+      color: $white;
+      border: 1px solid $white;
       cursor: pointer;
     }
   }
@@ -113,7 +111,22 @@
     .subnav_container {
       width: 1100px;
       margin: 0 auto;
-      padding-left: 180px;
+      padding-left: 200px;
+    }
+    .subnav_item {
+      @include flex(flex-start, center);
+      height: 34px;
+      a {
+        font-size: $font-size14;
+        color: $white;
+        padding: 4px 13px;
+        border-radius: 20px;
+        margin: 0 17px;
+        &.active,
+        &:hover {
+          background-color: #9b0909;
+        }
+      }
     }
   }
 }

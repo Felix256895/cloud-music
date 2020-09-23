@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -26,9 +22,8 @@
       "views/*": ["src/views/*"],
       "utils/*": ["src/utils/*"],
       "styles/*": ["src/styles/*"],
+      "context/*": ["src/context/*"]
     }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
