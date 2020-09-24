@@ -87,11 +87,11 @@ instance.interceptors.response.use(
  * @param {*} payload { type:Boolean }
  */
 
-// function isShowLoading(payload) {
-// // 获取dom节点
+// function isShowLoading(payload: boolean) {
+// return true;
+// 获取dom节点
 //  const loading = document.getElementById('loading');
 //  payload ? loading.style.display = 'block' : loading.style.display = 'none';
-
 // }
 
 /**

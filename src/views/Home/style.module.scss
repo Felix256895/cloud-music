@@ -1,14 +1,26 @@
 @import 'styles/mixin.scss';
-
-.carousel {
-  &_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 285px;
-    width: 100%;
+.slider {
+  height: 285px;
+  .carousel {
+    background-color: #242424;
+    &_container {
+      @include flex();
+      // height: 285px;
+      width: $fixed-width;
+      margin: 0 auto;
+    }
+    &_img {
+      max-width: 100%;
+    }
   }
-  &_img {
-    width: 100%;
+}
+
+.recommend {
+  width: $fixed-width;
+  margin: 20px auto;
+  background-color: $white;
+  &_box {
+    display: flex;
+    flex-wrap: wrap;
   }
 }

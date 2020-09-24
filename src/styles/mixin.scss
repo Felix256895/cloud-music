@@ -2,10 +2,14 @@ $font-size12: 12px;
 $font-size14: 14px;
 $font-size16: 16px;
 $font-size18: 18px;
+$font-size20: 20px;
+
+$fixed-width: 1100px;
 
 $red: #c20c0c;
 $black: #000;
 $white: #fff;
+$title-color: #333;
 
 @mixin flex($justify-content: center, $align-items: center) {
   display: flex;
@@ -13,8 +17,8 @@ $white: #fff;
   align-items: $align-items;
 }
 
-@mixin sprite-icon($x: 0, $y: 0) {
-  background: url('../assets/images/icon.png') no-repeat;
+@mixin sprite-icon($x: 0, $y: 0, $name: 'icon') {
+  background: url('../assets/images/' + $name + '.png') no-repeat;
   background-position: $x $y;
 }
 

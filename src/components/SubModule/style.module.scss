@@ -1,0 +1,45 @@
+@import 'styles/mixin.scss';
+
+.sub {
+  width: 100%;
+  height: 34px;
+  @include flex(flex-start);
+  border-bottom: 2px solid #c10d0c;
+  &_title {
+    font-size: $font-size20;
+    color: $title-color;
+    position: relative;
+    padding-left: 34px;
+    &::before {
+      @include position(absolute);
+      content: '';
+      height: 34px;
+      @include sprite-icon(-225px, -156px, 'icon1');
+    }
+  }
+  &_list {
+    flex: 1;
+    height: 100%;
+    @include flex(flex-start);
+    padding-left: 20px;
+    margin: 0;
+    a {
+      color: #666;
+    }
+    span {
+      margin: 0 10px;
+    }
+  }
+  &_more {
+    font-size: $font-size12;
+    color: #666;
+  }
+  &_icon {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    @include sprite-icon(0, -240px, 'icon1');
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
