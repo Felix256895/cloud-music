@@ -1,16 +1,34 @@
 @import 'styles/mixin.scss';
 .slider {
   height: 285px;
+  overflow: hidden;
+  background-color: #242424;
   .carousel {
-    background-color: #242424;
     &_container {
       @include flex();
-      // height: 285px;
+
       width: $fixed-width;
       margin: 0 auto;
     }
     &_img {
+      height: 285px;
       max-width: 100%;
+    }
+  }
+  :global {
+    .slick-list {
+      height: 285px;
+    }
+    .slick-dots {
+      bottom: 15px;
+    }
+    .slick-prev {
+      left: 100px;
+      z-index: 100;
+    }
+    .slick-next {
+      right: 100px;
+      z-index: 100;
     }
   }
 }

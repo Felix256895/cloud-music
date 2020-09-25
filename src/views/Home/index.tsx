@@ -8,17 +8,18 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export default function Home() {
-  const { setProvider } = useContext(ctx);
+  const { provider, setProvider } = useContext(ctx);
   const [loading, setLoading] = useState<boolean>(false);
-  const dataSource: any = {};
   useEffect(() => {
     const Banner = () => {
       setLoading(true);
       banner()
         .then((res: any) => {
           const banners = (res && res.data && res.data.banners) || [];
-          dataSource.banners = banners;
-          setProvider({ banners });
+          setProvider(() => ({
+            ...provider,
+            banners
+          }));
           setLoading(false);
         })
         .catch((err: any) => {
@@ -30,10 +31,10 @@ export default function Home() {
       personalized({ limit: 10 })
         .then((res: any) => {
           const recommends = (res && res.data && res.data.result) || [];
-          const data = Object.assign({}, dataSource, {
-            recommends: recommends
-          });
-          setProvider(data);
+          setProvider((provider: any) => ({
+            ...provider,
+            recommends
+          }));
           setLoading(false);
         })
         .catch((err: any) => {
@@ -41,8 +42,12 @@ export default function Home() {
           message.error(err);
         });
     };
-    Banner();
-    Recommend();
+    if (provider.banners === undefined) {
+      Banner();
+    }
+    if (provider.recommends === undefined) {
+      Recommend();
+    }
   }, []);
   return (
     <Fragment>

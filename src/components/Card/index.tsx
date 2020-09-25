@@ -2,13 +2,7 @@ import React from 'react';
 import Lazyload from 'react-lazyload';
 import styles from './style.module.scss';
 
-interface Props {
-  name: string;
-  picUrl: string;
-  playCount: number;
-}
-
-const Card: React.FC<Props> = ({ name, picUrl, playCount }) => {
+const Card = ({ name, picUrl, playCount }: Global.CardRecommend) => {
   return (
     <div className={styles.card}>
       <div className={styles.card_container}>

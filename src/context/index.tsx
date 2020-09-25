@@ -12,7 +12,7 @@ interface Injected {
 export const ctx = createContext<Injected>({} as Injected);
 
 export function Provider({ children }: Props) {
-  const [provider, setProvider] = useState({});
+  const [provider, setProvider] = useState<object>({});
   const value = {
     provider,
     setProvider

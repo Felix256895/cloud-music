@@ -2,7 +2,7 @@
  * 全局暴露
  */
 declare namespace Global {
-  interface Routes{ 
+  interface Routes {
     key?: string;
     path?: string;
     component?: any;
@@ -10,5 +10,10 @@ declare namespace Global {
     routes?: Route[];
     render?: () => any;
   }
-
+  interface CardRecommend {
+    name: string;
+    picUrl: string;
+    playCount: number;
+    id?: number;
+  }
 }

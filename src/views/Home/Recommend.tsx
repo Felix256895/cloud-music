@@ -25,6 +25,7 @@ const data = [
     path: '/home/song-list'
   }
 ];
+
 const Recommend = () => {
   const { provider } = useContext(ctx);
   const recommend = (provider && provider.recommends) || [];
@@ -32,7 +33,7 @@ const Recommend = () => {
     <div className={styles.recommend}>
       <SubModule title="热门推荐" list={data} more={'/home/song-list'} />
       <div className={styles.recommend_box}>
-        {recommend.map((item: any) => (
+        {recommend.map((item: Global.CardRecommend) => (
           <Card key={item.id} {...item} />
         ))}
       </div>
